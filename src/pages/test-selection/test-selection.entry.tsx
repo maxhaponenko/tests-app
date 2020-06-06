@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import styled from 'styled-components'
 import TestsCard from './test-card'
 
-export default class TestSelector extends Component {
+export default class TestSelection extends Component {
     render() {
         return (
             <ContainerCentered>

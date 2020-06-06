@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Card } from 'antd';
+import React from 'react'
+import { Card } from 'antd'
 import styled from 'styled-components'
 const { Meta } = Card
 
