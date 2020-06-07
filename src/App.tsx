@@ -7,9 +7,9 @@ import SelectionBar from 'components/selection-bar'
 function App() {
   return (
     <BrowserRouter>
-      <SelectionBar />
       <Route path="/" component={TestSelection} />
       <Redirect to="/" />
+      <SelectionBar />
     </BrowserRouter>
   );
 }
