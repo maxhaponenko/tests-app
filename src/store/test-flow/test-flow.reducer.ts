@@ -4,6 +4,7 @@ export interface TestsFlow {
     testId: number | null;
     testName: string;
     testLevel: string;
+    testDuration: number | null;
     testStarted: boolean;
     currentStep: number;
     currentQuestion: number | null;
@@ -13,6 +14,7 @@ const initialState: TestsFlow = {
     testId: null,
     testName: '',
     testLevel: '',
+    testDuration: null,
     testStarted: false,
     currentStep: 1,
     currentQuestion: null,
@@ -31,6 +33,7 @@ const testsFlowReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 testLevel: action.payload.testLevel,
+                testDuration: action.payload.testDuration,
                 currentStep: state.currentStep + 1
             }
         }

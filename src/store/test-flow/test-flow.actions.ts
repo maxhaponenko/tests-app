@@ -8,10 +8,11 @@ export const selectGroup = (testName: string) => ({
         testName: testName
     }
 })
-export const selectLevel = (level: string) => ({
+export const selectLevel = (level: string, duration: number) => ({
     type: SELECT_LEVEL,
     payload: {
-        testLevel: level
+        testLevel: level,
+        testDuration: duration
     }
 })
 

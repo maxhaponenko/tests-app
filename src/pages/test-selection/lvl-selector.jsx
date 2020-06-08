@@ -15,7 +15,7 @@ export class LvlSelector extends Component {
                 {relevantTests.map(item => {
                     if (item.level === levels.junior) {
                         return (
-                            <JuniorLvl onClick={() => this.props.selectLevel(item.level)}>
+                            <JuniorLvl onClick={() => this.props.selectLevel(item.level, item.duration)}>
                                 <span>Junior</span>
                                 <Description>
                                     <div><FieldTimeOutlined />{item.duration}</div>
@@ -25,7 +25,7 @@ export class LvlSelector extends Component {
                         )
                     } else {
                         return (
-                            <MiddleLvl onClick={() => this.props.selectLevel(item.level)}>
+                            <MiddleLvl onClick={() => this.props.selectLevel(item.level, item.duration)}>
                                 <span>Middle</span>
                                 <Description>
                                     <div><FieldTimeOutlined />{item.duration}</div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { technologiesImg } from 'constants/images'
-import { groups } from 'constants/tests'
+import { groups, levels } from 'constants/tests'
 import PreviousStep from './previous-step'
 
 class SelectionBar extends Component {
@@ -28,15 +28,22 @@ class SelectionBar extends Component {
             }
         }
 
+        const capitalizeFirst = (string) => {
+            return string.substring(0,1).toUpperCase() + string.substring(1)
+        }
+
         return (
             <BarWrapper showBar={this.props.showBar}>
                 <PreviousStep />
-                <CurrentTest>
+                <SelectedTest>
                     <Image>
                         <img src={getImgSrc(this.props.testName)} alt="selected test"></img>
                     </Image>
-                    <Title>{this.props.testName}</Title>
-                </CurrentTest>
+                    <Title>{capitalizeFirst(this.props.testName)}</Title>
+                </SelectedTest>
+                <SelectedLevel showLevel={this.props.showLevel} level={this.props.testLevel}>
+                    <span>{capitalizeFirst(this.props.testLevel)}</span>
+                </SelectedLevel>
             </BarWrapper>
         )
     }
@@ -48,13 +55,12 @@ const BarWrapper = styled.div`
     top: 15px;
     height: auto;
     background-color: #ffffff;
-    overflow: hidden;
     transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.175);
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
 `
-const CurrentTest = styled.div`
+const SelectedTest = styled.div`
     position: relative; 
     width: max-content;
     height: auto;
@@ -88,11 +94,43 @@ const Title = styled.span`
     line-height: 1rem;
     padding: 0 20px 0 20px;
 `
-
+const SelectedLevel = styled.div`
+    position: relative;
+    height: auto;
+    padding: 0 20px;
+    display: flex;
+    margin-left: 15px;
+    border-radius: 3px;
+    background-color: ${props => {
+        if (props.level === levels.junior) {
+            return `#95de64`
+        } else if (props.level === levels.middle){
+            return `#40a9ff`
+        }
+    }};
+    top: ${props => props.showLevel ? `0` : `-100px`};
+    transition: all 150ms cubic-bezier(0.175, 0.885, 0.32, 1.175);
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 3px;
+        border: 1px solid #00000029;
+    }   
+    span {
+        height: auto;
+        align-self: center;
+    }
+`
 
 const mapStateToProps = (state) => ({
-    showBar: (state.testFlow.currentStep > 1),
+    showBar: state.testFlow.currentStep > 1,
     testName: state.testFlow.testName,
+    showLevel: state.testFlow.currentStep > 2,
+    testLevel: state.testFlow.testLevel
 })
 
 const mapDispatchToProps = {
