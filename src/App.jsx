@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import TestSelection from 'pages/test-selection/test-selection.entry';
+import MainFlow from 'pages/main-flow/main-flow.entry';
 import SelectionBar from 'components/selection-bar'
 import Timer from 'components/timer'
 
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/" component={TestSelection} />
-      <Redirect to="/" />
+      <Switch>
+        <Route exact path="/" component={MainFlow} />
+        <Redirect to="/" />
+      </Switch>
       <SelectionBar />
       <Timer />
     </BrowserRouter>

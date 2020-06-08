@@ -22,9 +22,6 @@ class SelectionBar extends Component {
                 case groups.react: {
                     return technologiesImg.react
                 }
-                default: {
-                    return "https://i.pinimg.com/originals/60/95/f5/6095f5e3f52b117495f2bf77641d9d4c.png"
-                }
             }
         }
 

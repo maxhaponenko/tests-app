@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 
 import styled from 'styled-components'
-import GroupSelector from './group-selector'
-import LvlSelector from './lvl-selector'
+import GroupSelector from './step-1-group-selector'
+import LvlSelector from './step-2-lvl-selector'
 
 
 
 class TestSelection extends Component {
-
-
     render() {
-
         return (
             <ContainerCentered>
                 <Heading>{this.props.currentStep === 1 ? `What skill you would like to check?` : `Please, select your level`}</Heading>
@@ -65,4 +63,4 @@ const mapDispatchToProps = {
     
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestSelection)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TestSelection))

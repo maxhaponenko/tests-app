@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { selectGroup } from 'store/test-flow/test-flow.actions'
 import { groups } from 'constants/tests'
 import { Row, Col } from 'antd'
-import TestsCard from './test-card'
+import TestsCard from './components/test-card'
 import { technologiesImg } from 'constants/images'
 
 
