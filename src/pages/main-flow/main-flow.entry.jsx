@@ -6,17 +6,18 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import GroupSelector from './step-1-group-selector'
 import LvlSelector from './step-2-lvl-selector'
-
+import TestingProcess from './step-3-testing-process'
 
 
 class TestSelection extends Component {
     render() {
         return (
             <ContainerCentered>
-                <Heading>{this.props.currentStep === 1 ? `What skill you would like to check?` : `Please, select your level`}</Heading>
+                {/* <Heading>{this.props.currentStep === 1 ? `What skill you would like to check?` : `Please, select your level`}</Heading> */}
                 <SelectionPanel position={this.props.currentStep}>
                     <GroupSelector />
                     <LvlSelector />
+                    <TestingProcess />
                 </SelectionPanel>
             </ContainerCentered>
         )
@@ -25,10 +26,8 @@ class TestSelection extends Component {
 
 const ContainerCentered = styled.div`
   width: 100vw;
-  height: auto;
+  height: 100vh;
   position: relative;
-  top: 50%;
-  transform: translate(0, -55%);
 `
 const Heading = styled.h2`
     text-align: center;
@@ -37,18 +36,19 @@ const Heading = styled.h2`
     transition: all 200ms ease-in-out;
 `
 const SelectionPanel = styled.div`
-    width: 200vw;
+    width: 300vw;
     position: relative;
-    left: ${(props) => {
+    right: ${(props) => {
         if (props.position === 1) {
-            return '-100%'
-        } else if (props.position === 2) {
             return '0%'
+        } else if (props.position === 2) {
+            return '100%'
+        } else if (props.position === 3) {
+            return '200%'
         }
     }};
-    transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.175);
+    transition: right 500ms cubic-bezier(0.175, 0.885, 0.32, 1.175);
     display: flex;
-    flex-direction: row-reverse;
     > div {
         width: 100vw;
     }

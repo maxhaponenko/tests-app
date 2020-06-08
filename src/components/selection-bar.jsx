@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { technologiesImg } from 'constants/images'
 import { groups, levels } from 'constants/tests'
 import PreviousStep from './previous-step'
+import { capitalizeFirst } from 'utils/capitalize'
 
 class SelectionBar extends Component {
     render() {
@@ -23,10 +24,6 @@ class SelectionBar extends Component {
                     return technologiesImg.react
                 }
             }
-        }
-
-        const capitalizeFirst = (string) => {
-            return string.substring(0,1).toUpperCase() + string.substring(1)
         }
 
         return (

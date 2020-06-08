@@ -3,13 +3,7 @@ import { Card } from 'antd'
 import styled from 'styled-components'
 const { Meta } = Card
 
-interface OwnProps {
-    onClick: () => void;
-    title: string;
-    imgSrc: string;
-}
-
-const TestCard = ({imgSrc, title, onClick}: OwnProps) => {
+const TestCard = ({imgSrc, title, onClick}) => {
     return (
         <CardWrapper>
             <Card
