@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { technologiesImg } from 'constants/images'
+import { groups } from 'constants/tests'
 import PreviousStep from './previous-step'
 
 class SelectionBar extends Component {
@@ -9,16 +10,16 @@ class SelectionBar extends Component {
 
         const getImgSrc = (testName) => {
             switch (testName) {
-                case 'Html': {
+                case groups.html: {
                     return technologiesImg.html
                 }
-                case 'Css': {
+                case groups.css: {
                     return technologiesImg.css
                 }
-                case 'JavaScript': {
+                case groups.js: {
                     return technologiesImg.js
                 }
-                case 'React': {
+                case groups.react: {
                     return technologiesImg.react
                 }
                 default: {
@@ -55,7 +56,7 @@ const BarWrapper = styled.div`
 `
 const CurrentTest = styled.div`
     position: relative; 
-    width: auto;
+    width: max-content;
     height: auto;
     border-radius: 3px;
     display: flex;

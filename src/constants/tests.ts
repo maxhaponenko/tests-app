@@ -8,67 +8,78 @@ interface Test {
 }
 type Tests = Array<Test>
 
+export const groups = {
+    html: 'html',
+    css: 'css',
+    js: 'javascript',
+    react: 'react'
+}
+export const levels = {
+    junior: 'junior',
+    middle: 'middle'
+}
+
 export const tests: Tests = [
     {
         id: 1,
-        group: 'Html',
-        level: 'junior',
-        duration: 10,
-        questionsAmount: 20,
+        group: groups.html,
+        level: levels.junior,
+        duration: 7,
+        questionsAmount: 15,
         available: true
     },
     {
         id: 2,
-        group: 'Html',
-        level: 'middle',
+        group: groups.html,
+        level: levels.middle,
         duration: 10,
         questionsAmount: 20,
         available: false
     },
     {
         id: 3,
-        group: 'Css',
-        level: 'junior',
+        group: groups.css,
+        level: levels.junior,
         duration: 10,
         questionsAmount: 20,
         available: true
     },
     {
         id: 4,
-        group: 'Css',
-        level: 'middle',
+        group: groups.css,
+        level: levels.middle,
         duration: 10,
         questionsAmount: 20,
         available: false
     },
     {
         id: 5,
-        group: 'JavaScript',
-        level: 'junior',
+        group: groups.js,
+        level: levels.junior,
         duration: 10,
         questionsAmount: 20,
         available: true
     },
     {
         id: 6,
-        group: 'JavaScript',
-        level: 'middle',
+        group: groups.js,
+        level: levels.middle,
         duration: 10,
         questionsAmount: 20,
         available: true
     },
     {
         id: 7,
-        group: 'React',
-        level: 'middle',
+        group: groups.react,
+        level: levels.junior,
         duration: 10,
         questionsAmount: 20,
         available: true
     },
     {
         id: 8,
-        group: 'React',
-        level: 'middle',
+        group: groups.react,
+        level: levels.middle,
         duration: 10,
         questionsAmount: 20,
         available: true

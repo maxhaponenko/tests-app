@@ -1,8 +1,9 @@
-import { SELECT_GROUP, PREV_STEP } from './test-flow.actions'
+import { SELECT_GROUP, SELECT_LEVEL, PREV_STEP } from './test-flow.actions'
 
 export interface TestsFlow {
     testId: number | null;
     testName: string;
+    testLevel: string;
     testStarted: boolean;
     currentStep: number;
     currentQuestion: number | null;
@@ -11,6 +12,7 @@ export interface TestsFlow {
 const initialState: TestsFlow = {
     testId: null,
     testName: '',
+    testLevel: '',
     testStarted: false,
     currentStep: 1,
     currentQuestion: null,
@@ -22,6 +24,13 @@ const testsFlowReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 testName: action.payload.testName,
+                currentStep: state.currentStep + 1
+            }
+        }
+        case SELECT_LEVEL: {
+            return {
+                ...state,
+                testLevel: action.payload.testLevel,
                 currentStep: state.currentStep + 1
             }
         }
