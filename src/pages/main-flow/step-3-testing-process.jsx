@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export class TestingProcess extends Component {
     render() {
         return (
-            <Container>
+            <Container className="TestingProcess">
                 <div>
                     <Heading>Question 1 of 15</Heading>
                     <Placeholder>

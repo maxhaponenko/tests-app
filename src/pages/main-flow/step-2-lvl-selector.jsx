@@ -27,7 +27,6 @@ export class LvlSelector extends Component {
                     })}
                 </CardsWrapper>
             </Container>
-
         )
     }
 }

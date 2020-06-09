@@ -20,9 +20,9 @@ const initialState: TestsFlow = {
     testId: null,
     testName: '',
     testLevel: '',
-    testDuration: null,
+    testDuration: 0,
     testStarted: false,
-    currentStep: 3,
+    currentStep: 1,
     currentQuestion: null,
 }
 

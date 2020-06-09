@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export class QuestionNavigation extends Component {
     render() {
         return (
-            <Wrapper show={this.props.showNavigation} className="question-navigation">
+            <Wrapper ref={this.props.innerRef} show={this.props.showNavigation} className="question-navigation">
                 <div />
                 <div />
                 <div />
@@ -61,4 +61,6 @@ const mapDispatchToProps = {
     
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionNavigation)
+const ConnectedQuestionNavigation = connect(mapStateToProps, mapDispatchToProps)(QuestionNavigation)
+
+export default React.forwardRef((props, ref) => <ConnectedQuestionNavigation innerRef={ref} {...props} />)

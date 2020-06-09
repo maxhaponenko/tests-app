@@ -60,7 +60,7 @@ export class Timer extends Component {
     render() {
         
         return (
-            <Wrapper show={this.props.showTimer}>
+            <Wrapper ref={this.props.innerRef} show={this.props.showTimer}>
                 <FieldTimeOutlined /><span className="time">{this.state.timeLeft}</span>
             </Wrapper>
         )
@@ -114,4 +114,6 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Timer)
+const ConnectedTimer = connect(mapStateToProps, mapDispatchToProps)(Timer)
+
+export default React.forwardRef((props, ref) => <ConnectedTimer innerRef={ref} {...props}/>)
