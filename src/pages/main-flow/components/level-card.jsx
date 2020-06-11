@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { FieldTimeOutlined, QuestionOutlined } from '@ant-design/icons'
 import { capitalizeFirst } from 'utils/capitalize'

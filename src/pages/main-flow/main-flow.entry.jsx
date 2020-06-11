@@ -13,7 +13,6 @@ class TestSelection extends Component {
     render() {
         return (
             <ContainerCentered>
-                {/* <Heading>{this.props.currentStep === 1 ? `What skill you would like to check?` : `Please, select your level`}</Heading> */}
                 <SelectionPanel position={this.props.currentStep}>
                     <GroupSelector />
                     <LvlSelector />
@@ -28,12 +27,6 @@ const ContainerCentered = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-`
-const Heading = styled.h2`
-    text-align: center;
-    font-weight: 400;
-    margin-bottom: 40px;
-    transition: all 200ms ease-in-out;
 `
 const SelectionPanel = styled.div`
     width: 300vw;
