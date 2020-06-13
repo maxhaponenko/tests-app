@@ -50,11 +50,11 @@ class App extends React.Component {
    render() {
       return (
          <BrowserRouter>
-            {this.state.isReadyToTips && this.props.currentStep === 3 && (
+            {/* {this.state.isReadyToTips && this.props.currentStep === 3 && (
                <GuidTarget onClick={() => {
                   this.setState({activeTip: this.state.activeTip === 1 ? 2 : 1})
                }} show={this.state.isReadyToTips} radius={350} position={this.getPosition()}/>
-            )}
+            )} */}
             <Switch>
                <Route exact path="/" component={MainFlow} />
                <Redirect to="/" />

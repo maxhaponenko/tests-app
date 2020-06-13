@@ -6,6 +6,9 @@ import {
     DISPOSE_FLOW 
 } from './test-flow.actions'
 
+import { attachReducers } from 'utils/attach-reducers'
+import tutorialFLowReducer from './tutorial-flow/tutorial-flow.reducer'
+
 export interface TestsFlow {
     testId: number | null;
     testName: string;
@@ -55,6 +58,11 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 currentStep: 1
             }
         }
+
+        // case NEXT_TIP: {
+
+        // }
+
         case DISPOSE_FLOW: {
             return initialState
         }
@@ -64,4 +72,6 @@ const testsFlowReducer = (state = initialState, action: any) => {
     }
 }
 
-export default testsFlowReducer
+export default attachReducers(testsFlowReducer, {
+    tutorialFlow: tutorialFLowReducer
+})

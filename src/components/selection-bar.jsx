@@ -98,6 +98,8 @@ const SelectedLevel = styled.div`
     display: flex;
     margin-left: 15px;
     border-radius: 3px;
+    color: white;
+    font-weight: 500;
     background-color: ${props => {
         if (props.level === levels.junior) {
             return `#95de64`
@@ -120,6 +122,8 @@ const SelectedLevel = styled.div`
     span {
         height: auto;
         align-self: center;
+        opacity: 0.9;
+        letter-spacing: 0.5px;
     }
 `
 

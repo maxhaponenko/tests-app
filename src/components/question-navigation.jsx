@@ -45,10 +45,10 @@ const Wrapper = styled.div`
         border-radius: 3px;
         margin: 0 3px;
         align-self: center;
-        transition: all 200ms ease-in-out;
+        transition: all 100ms;
         &:hover {
             cursor: pointer;
-            height: 12px;
+            height: 15px;
         }
     }
 `
