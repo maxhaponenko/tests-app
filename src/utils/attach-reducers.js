@@ -1,7 +1,6 @@
 export function attachReducers(original, reducers) {
-    // debugger
     const nestedReducerKeys = Object.keys(reducers)
-    return function combination(state, action) {
+    return (state, action) => {
       const nextState = original(state, action)
       let hasChanged = false
       const nestedState = {}

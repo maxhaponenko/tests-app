@@ -7,6 +7,7 @@ import MainFlow from 'pages/main-flow/main-flow.entry';
 import SelectionBar from 'components/selection-bar'
 import Timer from 'components/timer'
 import QuestionNavigation from 'components/question-navigation'
+import TestingControll from 'components/testing-controll'
 
 class App extends React.Component {
 
@@ -61,7 +62,9 @@ class App extends React.Component {
             </Switch>
             <SelectionBar />
             <Timer ref={this.timerRef}/>
+            <TestingControll />
             <QuestionNavigation ref={this.questionNavRef}/>
+            
          </BrowserRouter>
       );
    }
