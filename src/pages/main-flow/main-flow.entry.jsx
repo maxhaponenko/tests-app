@@ -11,7 +11,7 @@ import Timer from 'components/timer'
 import QuestionNavigation from 'components/question-navigation'
 import TestingControll from 'components/testing-controll'
 
-import { skipAllTips, animateFinalStep } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { skipAllTips } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 
 
 class TestSelection extends Component {

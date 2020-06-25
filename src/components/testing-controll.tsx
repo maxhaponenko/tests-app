@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd';
-import { PlayCircleOutlined, PauseCircleOutlined, LeftOutlined } from '@ant-design/icons'
+import { PlayCircleOutlined } from '@ant-design/icons'
 import { AppState } from 'store/root.reducer'
-import { TutorialFlowSelector } from 'store/test-flow/tutorial-flow/tutorial-flow.reducer'
 import { TestsFlowSelector } from 'store/test-flow/test-flow.reducer'
 import styled from 'styled-components'
 
