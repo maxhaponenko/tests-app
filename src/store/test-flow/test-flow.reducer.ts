@@ -1,12 +1,15 @@
 import { 
     SELECT_GROUP, 
     SELECT_LEVEL, 
+    SET_READY_TO_START,
     PREV_STEP, 
     FIRST_STEP,
     DISPOSE_FLOW 
 } from './test-flow.actions'
-
+import { SKIP_ALL_TIPS } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { TutorialState } from './tutorial-flow/tutorial-flow.reducer'
 import { attachReducers } from 'utils/attach-reducers'
+import { AppState } from 'store/root.reducer'
 import tutorialFLowReducer from './tutorial-flow/tutorial-flow.reducer'
 
 export interface TestsFlow {
@@ -17,6 +20,8 @@ export interface TestsFlow {
     testStarted: boolean;
     currentStep: number;
     currentQuestion: number | null;
+    isReadyToStart: boolean;
+    tutorialFlow?: TutorialState;
 }
 
 const initialState: TestsFlow = {
@@ -27,6 +32,7 @@ const initialState: TestsFlow = {
     testStarted: false,
     currentStep: 1,
     currentQuestion: null,
+    isReadyToStart: false,
 }
 
 const testsFlowReducer = (state = initialState, action: any) => {
@@ -46,6 +52,12 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 currentStep: state.currentStep + 1
             }
         }
+        case SET_READY_TO_START: {
+            return {
+                ...state,
+                isReadyToStart: true
+            }
+        }
         case PREV_STEP: {
             return {
                 ...state,
@@ -58,10 +70,12 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 currentStep: 1
             }
         }
-
-        // case NEXT_TIP: {
-
-        // }
+        case SKIP_ALL_TIPS: {
+            return {
+                ...state,
+                isReadyToStart: true
+            }
+        }
 
         case DISPOSE_FLOW: {
             return initialState
@@ -75,3 +89,9 @@ const testsFlowReducer = (state = initialState, action: any) => {
 export default attachReducers(testsFlowReducer, {
     tutorialFlow: tutorialFLowReducer
 })
+
+export class TestsFlowSelector {
+    public static isReadyToStart(state: AppState): boolean {
+        return state.testFlow.isReadyToStart
+    }
+}

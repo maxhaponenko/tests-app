@@ -1,5 +1,5 @@
 import React from 'react'
-import s from 'styled-components'
+import styled from 'styled-components'
 
 interface OwnProps {
     count: number;
@@ -23,10 +23,10 @@ const QuestionPlaceholder = (props: OwnProps) => {
 }
 
 
-const Placeholder = s.div`
+const Placeholder = styled.div`
     height: 300px;
 `
-const Question = s.div`
+const Question = styled.div`
     width: 60%;
     height: 50px;
     border-radius: 3px;
@@ -34,7 +34,7 @@ const Question = s.div`
     margin-bottom: 20px;
     margin-top: 20px;
 `
-const Answers = s.div`
+const Answers = styled.div`
     > div {
         width: 80%;
         height: 40px;
