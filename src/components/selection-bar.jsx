@@ -30,7 +30,7 @@ class SelectionBar extends Component {
         }
 
         return (
-            <BarWrapper showBar={this.props.showBar}>
+            <BarWrapper ref={this.props.innerRef} showBar={this.props.showBar}>
                 <PreviousStep />
                 <SelectedTest>
                     <Image>
@@ -138,4 +138,6 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectionBar)
+const ConnectedSelectionBar = connect(mapStateToProps, mapDispatchToProps)(SelectionBar)
+
+export default React.forwardRef((props, ref) => <ConnectedSelectionBar innerRef={ref} {...props}/>)

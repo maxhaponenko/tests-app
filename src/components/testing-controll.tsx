@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, RefObject } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons'
 import { AppState } from 'store/root.reducer'
-import { TestsFlowSelector } from 'store/test-flow/test-flow.reducer'
 import styled from 'styled-components'
 
 interface StateProps {
     showControll: boolean;
+    innerRef: RefObject<any>;
 }
 
 export class TestingControll extends Component<StateProps, {}> {
@@ -15,7 +15,7 @@ export class TestingControll extends Component<StateProps, {}> {
     render() {
         
         return (
-            <HoverArea className={this.constructor.name} show={this.props.showControll}>
+            <HoverArea ref={this.props.innerRef} className={this.constructor.name} show={this.props.showControll}>
                 <div className="controlls-container">
                     <Button className="start-button" type="default" size='large'>
                         <PlayCircleOutlined />
@@ -28,8 +28,8 @@ export class TestingControll extends Component<StateProps, {}> {
 }
 
 const HoverArea: any = styled.div`
-    width: 25vw;
-    height: 30vh;
+    width: 200px;
+    height: 180px;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -52,24 +52,18 @@ const HoverArea: any = styled.div`
             border-color: #52c41a;
         }
     }
-    &:hover,&:focus {
-        & .clickable {
-            transform: translate(200%, -50%);
-            opacity: 0;
-        }
-        & .controlls-container {
-            transform: translate(0%, 0);
-        }
-    }
 `
 
 
 const mapStateToProps = (state: AppState) => ({
-    showControll: TestsFlowSelector.isReadyToStart(state)
+    showControll: state.testFlow.tutorialFlow!.currentTip >= 3 || state.testFlow.tutorialFlow!.isFinished
 })
 
 const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestingControll)
+
+const ConnectedControll = connect(mapStateToProps, mapDispatchToProps)(TestingControll)
+
+export default React.forwardRef((props: any, ref: any) => <ConnectedControll innerRef={ref} {...props}/>)

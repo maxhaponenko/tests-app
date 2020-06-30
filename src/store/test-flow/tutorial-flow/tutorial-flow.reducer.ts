@@ -1,20 +1,21 @@
 import {
     START_TUTORIAL,
     NEXT_TIP,
-    SKIP_ALL_TIPS
+    SKIP_ALL_TIPS,
+    CLOSE_TUTORIAL
 } from './tutorial-flow.actions'
 import { AppState } from 'store/root.reducer'
 export interface TutorialState {
     required: false;
     showTutorial: false;
-    activeTip: number;
+    currentTip: number;
     isFinished: boolean;
 }
 
 const initialState: TutorialState = {
     required: false,
     showTutorial: false,
-    activeTip: 0,
+    currentTip: 0,
     isFinished: false
 }
 
@@ -24,20 +25,29 @@ export default (state = initialState, { type, payload }: any) => {
             return {
                 ...state,
                 showTutorial: true,
-                activeTip: 1
+                currentTip: 1
             }
         }
-        case NEXT_TIP: {                                                                  
+        case NEXT_TIP: {                                                                
             return { 
                 ...state, 
-                activeTip: state.activeTip + 1 
+                currentTip: state.currentTip + 1 
             }
         }
         case SKIP_ALL_TIPS: {                                                                  
             return { 
                 ...state, 
                 isFinished: true,
-                activeTip: 0,
+                showTutorial: false,
+                currentTip: 0,
+            }
+        }
+        case CLOSE_TUTORIAL: {                                                                  
+            return { 
+                ...state, 
+                showTutorial: false,
+                currentTip: 0,
+                isFinished: true
             }
         }
         default:

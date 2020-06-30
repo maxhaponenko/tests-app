@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { tests } from 'constants/tests'
 import { selectLevel } from 'store/test-flow/test-flow.actions'
+import { startTutorial } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 import LevelCard from './components/level-card'
 
 export class LvlSelector extends Component {
@@ -21,7 +22,12 @@ export class LvlSelector extends Component {
                                 type={item.level}
                                 duration={item.duration}
                                 questionsAmount={item.questionsAmount}
-                                onClick={() => this.props.selectLevel(item.level, item.duration)}
+                                onClick={() => {
+                                    this.props.selectLevel(item.level, item.duration);
+                                    setTimeout(() => {
+                                        this.props.startTutorial();
+                                    }, 1500)
+                                }}
                             />
                         )
                     })}
@@ -58,7 +64,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    selectLevel: selectLevel
+    selectLevel: selectLevel,
+    startTutorial: startTutorial,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LvlSelector)

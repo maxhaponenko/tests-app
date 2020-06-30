@@ -6,7 +6,7 @@ import QuestionPlaceholder from './components/question-placeholder'
 export class TestingProcess extends Component {
     render() {
         return (
-            <Container>
+            <Container className={this.constructor.name}>
                 <QuestionPlaceholder count={15}/>
             </Container>
         )

@@ -70,12 +70,6 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 currentStep: 1
             }
         }
-        case SKIP_ALL_TIPS: {
-            return {
-                ...state,
-                isReadyToStart: true
-            }
-        }
 
         case DISPOSE_FLOW: {
             return initialState
