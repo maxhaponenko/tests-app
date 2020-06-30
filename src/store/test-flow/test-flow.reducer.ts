@@ -6,7 +6,6 @@ import {
     FIRST_STEP,
     DISPOSE_FLOW 
 } from './test-flow.actions'
-import { SKIP_ALL_TIPS } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 import { TutorialState } from './tutorial-flow/tutorial-flow.reducer'
 import { attachReducers } from 'utils/attach-reducers'
 import { AppState } from 'store/root.reducer'
