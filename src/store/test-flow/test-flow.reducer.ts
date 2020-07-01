@@ -10,6 +10,7 @@ import { TutorialState } from './tutorial-flow/tutorial-flow.reducer'
 import { attachReducers } from 'utils/attach-reducers'
 import { AppState } from 'store/root.reducer'
 import tutorialFLowReducer from './tutorial-flow/tutorial-flow.reducer'
+import { tests }  from 'constants/tests';
 
 export interface TestsFlow {
     testId: number | null;
@@ -17,6 +18,7 @@ export interface TestsFlow {
     testLevel: string;
     testDuration: number | null;
     testStarted: boolean;
+    testData: any;
     currentStep: number;
     currentQuestion: number | null;
     isReadyToStart: boolean;
@@ -29,8 +31,9 @@ const initialState: TestsFlow = {
     testLevel: '',
     testDuration: 0,
     testStarted: false,
+    testData: tests[0].data,
     currentStep: 1,
-    currentQuestion: null,
+    currentQuestion: 1,
     isReadyToStart: false,
 }
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import Questions from './components/questions'
 
-import QuestionPlaceholder from './components/question-placeholder'
 export class TestingProcess extends Component {
     render() {
         return (
             <Container className={this.constructor.name}>
-                <QuestionPlaceholder count={15}/>
+                <Questions />
             </Container>
         )
     }

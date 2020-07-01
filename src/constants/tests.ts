@@ -1,3 +1,13 @@
+
+export interface TestData {
+    question: string;
+    type: string;
+    answers: Array<{
+        text: string;
+        isCorrect: boolean;
+    }>
+}
+
 interface Test {
     id: number | null;
     group: string;
@@ -5,6 +15,7 @@ interface Test {
     duration: number;
     questionsAmount: number;
     available: boolean;
+    data?: Array<TestData>;
 }
 type Tests = Array<Test>
 
@@ -26,7 +37,45 @@ export const tests: Tests = [
         level: levels.junior,
         duration: 7,
         questionsAmount: 15,
-        available: true
+        available: true,
+        data: [
+            {
+                question: "Какие бывают значения у свойства position?",
+                type: 'one-correct',
+                answers: [
+                    {
+                        text: "position: absolute, fixed, relative, static, sticky",
+                        isCorrect: true,
+                    },
+                    {
+                        text: "position: block, fix, flex",
+                        isCorrect: false,
+                    },
+                    {
+                        text: "position: inline, inline-fix, inline flex",
+                        isCorrect: false,
+                    }
+                ]
+            },
+            {
+                question: "Что такое clearfix? Из чего он состоит и для чего он?",
+                type: 'one-correct',
+                answers: [
+                    {
+                        text: "Это способ борьбы с проблемой контейнера нулевой высоты для плавающих элементов",
+                        isCorrect: true,
+                    },
+                    {
+                        text: "В css нет такого понятия",
+                        isCorrect: false,
+                    },
+                    {
+                        text: "Тоже самое что и position: fixed",
+                        isCorrect: false,
+                    }
+                ]
+            },
+        ]
     },
     {
         id: 2,

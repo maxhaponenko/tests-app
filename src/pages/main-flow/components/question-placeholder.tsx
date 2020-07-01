@@ -1,24 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface OwnProps {
-    count: number;
-}
 
-const QuestionPlaceholder = (props: OwnProps) => {
+const QuestionPlaceholder = () => {
     return (
-        <div>
-            <h2>Question 1 of {props.count}</h2>
-            <Placeholder>
-                <Question></Question>
-                <Answers>
-                    <div />
-                    <div />
-                    <div />
-                    <div />
-                </Answers>
-            </Placeholder>
-        </div>
+        <Placeholder>
+            <Question></Question>
+            <Answers>
+                <div />
+                <div />
+                <div />
+                <div />
+            </Answers>
+        </Placeholder>
     )
 }
 
