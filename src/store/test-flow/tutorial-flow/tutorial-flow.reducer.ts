@@ -51,7 +51,10 @@ export default (state = initialState, { type, payload }: any) => {
             }
         }
         default:
-            return state
+            return {
+                ...state,
+                isFinished: false
+            }
         }
 }
 

@@ -56,7 +56,7 @@ const HoverArea: any = styled.div`
 
 
 const mapStateToProps = (state: AppState) => ({
-    showControll: state.testFlow.tutorialFlow!.currentTip >= 3 || state.testFlow.tutorialFlow!.isFinished
+    showControll: state.testFlow.currentStep > 2 && (state.testFlow.tutorialFlow!.currentTip >= 3 || (state.testFlow.tutorialFlow!.isFinished))
 })
 
 const mapDispatchToProps = {
