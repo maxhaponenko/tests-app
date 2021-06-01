@@ -20,7 +20,7 @@ const Questions = (props: StateProps) => {
     } = props
 
     const totalQuestionsCount = testData.length
-    debugger 
+    // debugger 
     return (
         <div>
             <h2>Question {currentQuestion} of {totalQuestionsCount}</h2>

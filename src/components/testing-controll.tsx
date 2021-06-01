@@ -6,7 +6,7 @@ import { AppState } from 'store/root.reducer'
 import styled from 'styled-components'
 
 interface StateProps {
-    showControll: boolean;
+    showControls: boolean;
     innerRef: RefObject<any>;
 }
 
@@ -15,7 +15,7 @@ export class TestingControll extends Component<StateProps, {}> {
     render() {
         
         return (
-            <HoverArea ref={this.props.innerRef} className={this.constructor.name} show={this.props.showControll}>
+            <HoverArea ref={this.props.innerRef} className={this.constructor.name} show={this.props.showControls}>
                 <div className="controlls-container">
                     <Button className="start-button" type="default" size='large'>
                         <PlayCircleOutlined />
@@ -56,7 +56,7 @@ const HoverArea: any = styled.div`
 
 
 const mapStateToProps = (state: AppState) => ({
-    showControll: state.testFlow.currentStep > 2 && (state.testFlow.tutorialFlow!.currentTip >= 3 || (state.testFlow.tutorialFlow!.isFinished))
+    showControls: state.testFlow.currentStep > 2 && (state.testFlow.tutorialFlow!.currentTip >= 3 || (state.testFlow.tutorialFlow!.isFinished))
 })
 
 const mapDispatchToProps = {

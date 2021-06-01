@@ -51,7 +51,11 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 ...state,
                 testLevel: action.payload.testLevel,
                 testDuration: action.payload.testDuration,
-                currentStep: state.currentStep + 1
+                currentStep: state.currentStep + 1,
+                tutorialFlow:{
+                    ...state.tutorialFlow,
+                    isFinished: false
+                }
             }
         }
         case SET_READY_TO_START: {
