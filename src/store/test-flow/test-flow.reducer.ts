@@ -80,8 +80,7 @@ const testsFlowReducer = (state = initialState, action: any) => {
         }
         default: {
             return {
-                ...state,
-                isFinished: false
+                ...state
             }
         }
     }
