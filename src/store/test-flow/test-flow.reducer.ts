@@ -60,6 +60,8 @@ const testsFlowReducer = (state = initialState, action: any) => {
                 isReadyToStart: true
             }
         }
+
+        
         case PREV_STEP: {
             return {
                 ...state,
