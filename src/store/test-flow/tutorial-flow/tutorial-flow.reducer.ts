@@ -4,7 +4,7 @@ import {
     SKIP_ALL_TIPS,
     CLOSE_TUTORIAL
 } from './tutorial-flow.actions'
-import { AppState } from 'store/root.reducer'
+import { AppState } from '../../root.reducer'
 export interface TutorialState {
     required: false;
     showTutorial: false;
@@ -19,7 +19,7 @@ const initialState: TutorialState = {
     isFinished: false
 }
 
-export default (state = initialState, { type, payload }: any) => {
+const tutorialFLowReducer = (state = initialState, { type }: any) => {
     switch (type) {
         case START_TUTORIAL: {
             return {
@@ -34,16 +34,16 @@ export default (state = initialState, { type, payload }: any) => {
                 currentTip: state.currentTip + 1 
             }
         }
-        case SKIP_ALL_TIPS: {                                                                  
-            return { 
+        case SKIP_ALL_TIPS: {
+            return {
                 ...state, 
                 isFinished: true,
                 showTutorial: false,
                 currentTip: 0,
             }
         }
-        case CLOSE_TUTORIAL: {                                                                  
-            return { 
+        case CLOSE_TUTORIAL: {
+            return {
                 ...state, 
                 showTutorial: false,
                 currentTip: 0,
@@ -56,6 +56,8 @@ export default (state = initialState, { type, payload }: any) => {
             }
         }
 }
+
+export default tutorialFLowReducer
 
 export class TutorialFlowSelector {
     public static shouldShowTutorial(state: AppState): boolean {

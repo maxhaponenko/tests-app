@@ -1,8 +1,8 @@
 import React, { Component, RefObject } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { connect } from 'react-redux';
-import { AppState } from 'store/root.reducer';
-import { nextTip, skipAllTips, closeTutorial } from 'store/test-flow/tutorial-flow/tutorial-flow.actions';
+import { AppState } from '../../../store/root.reducer';
+import { nextTip, skipAllTips, closeTutorial } from '../../../store/test-flow/tutorial-flow/tutorial-flow.actions';
 import { Button } from 'antd';
 
 interface OwnProps {
@@ -127,7 +127,7 @@ export class Tutorial extends Component<OwnProps & StateProps & DispatchProps, {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <>
                 <TipContainer

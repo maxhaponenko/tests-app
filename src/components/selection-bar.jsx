@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { technologiesImg } from 'constants/images'
-import { groups, levels } from 'constants/tests'
+import { technologiesImg } from '../constants/images'
+import { groups, levels } from '../constants/tests'
 import PreviousStep from './previous-step'
-import { capitalizeFirst } from 'utils/capitalize'
+import { capitalizeFirst } from '../utils/capitalize'
 
 class SelectionBar extends Component {
     render() {
@@ -34,7 +34,7 @@ class SelectionBar extends Component {
                 <PreviousStep />
                 <SelectedTest>
                     <Image>
-                        <img src={getImgSrc(this.props.testName)} alt="selected test"></img>
+                        <img src={getImgSrc(this.props.testName)} alt="selected test" />
                     </Image>
                     <Title>{capitalizeFirst(this.props.testName)}</Title>
                 </SelectedTest>

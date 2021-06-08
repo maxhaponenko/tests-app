@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import MainFlow from 'pages/main-flow/main-flow.entry';
+import MainFlow from './pages/main-flow/main-flow.entry';
 
 
 class App extends React.Component {
@@ -19,7 +19,7 @@ class App extends React.Component {
    }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = () => ({
 
 })
 

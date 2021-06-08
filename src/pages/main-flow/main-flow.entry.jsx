@@ -6,26 +6,26 @@ import styled from 'styled-components'
 import GroupSelector from './step-1-group-selector'
 import LvlSelector from './step-2-lvl-selector'
 import TestingProcess from './step-3-testing-process'
-import SelectionBar from 'components/selection-bar'
-import Timer from 'components/timer'
-import QuestionNavigation from 'components/question-navigation'
-import TestingControll from 'components/testing-controll'
-import Tutorial from 'pages/main-flow/components/tutorial'
+import SelectionBar from '../../components/selection-bar'
+import Timer from '../../components/timer'
+import QuestionNavigation from '../../components/question-navigation'
+import TestingControl from '../../components/testing-control'
+import Tutorial from '../../pages/main-flow/components/tutorial'
 
-import { nextTip, skipAllTips } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { nextTip, skipAllTips } from '../../store/test-flow/tutorial-flow/tutorial-flow.actions'
 
 
 class TestSelection extends Component {
 
     state = {
         showTutorial: false,
-        activeTip: 1,
+        activeTip: 1
     }
 
     selectionRef = React.createRef();
     timerRef = React.createRef();
     questionNavRef = React.createRef();
-    controllsRef = React.createRef();
+    controlsRef = React.createRef();
 
     componentDidMount() {
         setTimeout(() => {
@@ -53,15 +53,15 @@ class TestSelection extends Component {
                     <TestingProcess />
                 </SelectionPanel>
 
-                {/* Additional components for controlling the process and general info */}
+                {/* Additional components for controling the process and general info */}
                 <SelectionBar ref={this.selectionRef} />
                 <Timer ref={this.timerRef} />
-                <TestingControll ref={this.controllsRef} />
+                <TestingControl ref={this.controlsRef} />
                 <QuestionNavigation ref={this.questionNavRef} />
 
                 {/* Responsive tutorial with refs */}
                 <Tutorial
-                    refs={[this.timerRef, this.questionNavRef, this.controllsRef, this.selectionRef]}
+                    refs={[this.timerRef, this.questionNavRef, this.controlsRef, this.selectionRef]}
                 />
                 
             </ContainerCentered>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FieldTimeOutlined, QuestionOutlined } from '@ant-design/icons'
-import { capitalizeFirst } from 'utils/capitalize'
+import { capitalizeFirst } from '../../../utils/capitalize'
 
 
 const LevelCard = ({type, title, duration, questionsAmount, onClick}) => {
@@ -24,7 +24,7 @@ const LvlCard = styled.div`
     background-color: ${props => props.type === 'junior' ? `#f5f5f5` : `#f0f0f0`};
     border-radius: 3px;
     margin: 0 20px;
-    transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
+    //transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
     transition: all 150ms ease-in-out;
     &:hover {
         cursor: pointer;
@@ -51,7 +51,7 @@ const LvlCard = styled.div`
 `
 const Description = styled.div`
     position: relative;
-    height: 0px;
+    height: 0;
     opacity: 0;
     overflow: hidden;
     transition: all 200ms ease-in-out;

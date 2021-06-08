@@ -1,30 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { tests } from 'constants/tests'
-import { selectLevel } from 'store/test-flow/test-flow.actions'
-import { startTutorial } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { tests } from '../../constants/tests'
+import { selectLevel } from '../../store/test-flow/test-flow.actions'
+import { startTutorial } from '../../store/test-flow/tutorial-flow/tutorial-flow.actions'
 import LevelCard from './components/level-card'
+// import {loadState, localStorageKeys} from "../../utils/state-handler";
 
 export class LvlSelector extends Component {
     render() {
 
         const relevantTests = tests.filter(item => item.group === this.props.testName)
-
+        // console.log(state.testFlow.localStorage.skipTutorial)
+        // const skipTutorial = loadState(localStorageKeys.SKIP_TUTORIAL) === true
+        // console.log('ST', loadState(localStorageKeys.SKIP_TUTORIAL))
         return (
             <Container className="test">
                 <Heading>Select level</Heading>
                 <CardsWrapper>
-                    {relevantTests.map(item => {
+                    {relevantTests.map((item, index) => {
                         return (
-                            <LevelCard 
+                            <LevelCard
+                                key = {index}
                                 title={item.level}
                                 type={item.level}
                                 duration={item.duration}
                                 questionsAmount={item.questionsAmount}
                                 onClick={() => {
                                     this.props.selectLevel(item.level, item.duration);
-                                    setTimeout(() => {
+                                    if (!this.props.skipTutorial) setTimeout(() => {// ForMax: Is this the right place to start tutorial?
                                         this.props.startTutorial();
                                     }, 1500)
                                 }}
@@ -60,7 +64,8 @@ const CardsWrapper = styled.div`
 `
 
 const mapStateToProps = (state) => ({
-    testName: state.testFlow.testName
+    testName: state.testFlow.testName,
+    skipTutorial: state.testFlow.localStorage.skipTutorial
 })
 
 const mapDispatchToProps = {
