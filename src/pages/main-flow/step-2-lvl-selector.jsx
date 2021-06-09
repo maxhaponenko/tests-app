@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { tests } from '../../constants/tests'
-import { selectLevel } from '../../store/test-flow/test-flow.actions'
-import { startTutorial } from '../../store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { tests } from 'constants/tests'
+import { selectLevel } from 'store/test-flow/test-flow.actions'
+import { startTutorial } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 import LevelCard from './components/level-card'
-// import {loadState, localStorageKeys} from "../../utils/state-handler";
+// import {loadState, localStorageKeys} from "utils/state-handler";
 
 export class LvlSelector extends Component {
     render() {
@@ -28,9 +28,9 @@ export class LvlSelector extends Component {
                                 questionsAmount={item.questionsAmount}
                                 onClick={() => {
                                     this.props.selectLevel(item.level, item.duration);
-                                    if (!this.props.skipTutorial) setTimeout(() => {// ForMax: Is this the right place to start tutorial?
-                                        this.props.startTutorial();
-                                    }, 1500)
+                                    // if (!this.props.skipTutorial) setTimeout(() => {// ForMax: Is this the right place to start tutorial?
+                                    //     this.props.startTutorial();
+                                    // }, 1500)
                                 }}
                             />
                         )
@@ -69,8 +69,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    selectLevel: selectLevel,
-    startTutorial: startTutorial,
+    selectLevel,
+    startTutorial,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LvlSelector)

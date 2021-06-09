@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 
-import {selectGroup} from '../../store/test-flow/test-flow.actions'
-import {groups} from '../../constants/tests'
+import {selectGroup} from 'store/test-flow/test-flow.actions'
+import {groups} from 'constants/tests'
 import {Row, Col} from 'antd'
 import TestsCard from './components/test-card'
-import {technologiesImg} from '../../constants/images'
+import {technologiesImg} from 'constants/images'
 
 
 export class GroupSelector extends Component {
@@ -16,7 +16,6 @@ export class GroupSelector extends Component {
                 <Container>
                     <Heading>What skill you would like to check?</Heading>
                     <Row gutter={[16, 16]} style={{marginLeft: 0, marginRight: 0}}>
-                        {/*<Row gutter={[16, 16]} style={{ margin: 0 }}> /!*ForMax: Why you would need that margin: 0?*!/*/}
                         <Col className="gutter-row" xs={12} sm={8} md={8} lg={6}>
                             <TestsCard
                                 imgSrc={technologiesImg.html}

@@ -6,7 +6,7 @@ import {
     FIRST_STEP,
     DISPOSE_FLOW 
 } from './test-flow.actions'
-import {loadState, localStorageKeys} from "../../utils/state-handler";
+import {loadState, localStorageKeys} from "utils/state-handler";
 import { TutorialState } from './tutorial-flow/tutorial-flow.reducer'
 import { attachReducers } from 'utils/attach-reducers'
 import { AppState } from 'store/root.reducer'
@@ -33,8 +33,8 @@ export interface TestsFlow {
 
 console.log('test-flow Reducer');
 
-const authState = loadState(localStorageKeys.AUTH_STATE) //ForMax: Why can't I use it here if loadState is in create-store?
-const skipTutorial = loadState(localStorageKeys.SKIP_TUTORIAL) //ForMax: Why can't I use it here if loadState is in create-store
+const authState = loadState(localStorageKeys.AUTH_STATE) //Move to Component "main-flow.entry.jsx
+const skipTutorial = loadState(localStorageKeys.SKIP_TUTORIAL) //Move to Component "main-flow.entry.jsx
 
 // const authState = localStorage.getItem(localStorageKeys.AUTH_STATE)
 // const skipTutorial = localStorage.getItem(localStorageKeys.SKIP_TUTORIAL) === true

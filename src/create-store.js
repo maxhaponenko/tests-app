@@ -41,14 +41,10 @@ import {saveState} from "./utils/state-handler";
 // const authState = loadState(localStorageKeys.AUTH_STATE)
 // const skipTutorial = loadState(localStorageKeys.SKIP_TUTORIAL)
 
-const initialState = {
-    // testFlow: {
-    //     localStorage: {
-    //         authState: authState,
-    //         skipTutorial: skipTutorial
-    //     }
-    // }
+const oldState = {
 }
+
+//Dabee: Use Redux Persist for LocalStorage
 
 let middleware = [thunk]
 if (process.env.NODE_ENV !== 'production') {
@@ -56,15 +52,12 @@ if (process.env.NODE_ENV !== 'production') {
     middleware = [...middleware, reduxLogger]
 }
 
-const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware))) //ForMax: Why this line has linter warnings?
-
-// debugger
+const store = createStore(rootReducer, oldState, composeWithDevTools(applyMiddleware(...middleware)))
 
 saveState(store.getState())
 
 store.subscribe(() => {
     // saveState(store.getState().auth)
-    // debugger
     saveState(store.getState())
 })
 
@@ -88,23 +81,5 @@ store.subscribe(() => {
 //     }
 // });
 
-export const action = ({type = 'EMPTY_ACTION_TYPE', payload = {}}) => { //ForMax: Why not like this?
-
-        store.dispatch({//ForMax: Why not like this?
-            type: type,
-            payload: payload
-        })
-
-    // if (!payload) {//ForMax: Instead of this
-    //     store.dispatch({
-    //         type: type
-    //     })
-    // } else {
-    //     store.dispatch({
-    //         type: type,
-    //         payload: payload
-    //     })
-    // }
-}
 
 export default store

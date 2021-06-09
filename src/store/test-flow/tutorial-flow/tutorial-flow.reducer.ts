@@ -4,7 +4,7 @@ import {
     SKIP_ALL_TIPS,
     CLOSE_TUTORIAL
 } from './tutorial-flow.actions'
-import { AppState } from '../../root.reducer'
+import { AppState } from 'store/root.reducer'
 export interface TutorialState {
     required: false;
     showTutorial: false;

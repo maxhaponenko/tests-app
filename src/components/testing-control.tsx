@@ -1,8 +1,8 @@
-import React, {Component, RefObject} from 'react'
-import {connect} from 'react-redux'
-import {Button} from 'antd';
-import {PlayCircleOutlined} from '@ant-design/icons'
-import {AppState} from '../store/root.reducer'
+import React, { Component, RefObject } from 'react'
+import { connect } from 'react-redux'
+import { Button } from 'antd';
+import { PlayCircleOutlined } from '@ant-design/icons'
+import { AppState } from 'store/root.reducer'
 import styled from 'styled-components'
 
 interface StateProps {
@@ -18,7 +18,7 @@ export class TestingControl extends Component<StateProps, {}> {
             <HoverArea ref={this.props.innerRef} className={this.constructor.name} show={this.props.showControls}>
                 <div className="controls-container">
                     <Button className="start-button" type="default" size='large'>
-                        <PlayCircleOutlined/>
+                        <PlayCircleOutlined />
                         Start
                     </Button>
                 </div>
@@ -70,7 +70,6 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = {}
 
-
 const ConnectedControl = connect(mapStateToProps, mapDispatchToProps)(TestingControl)
 
-export default React.forwardRef((props: any, ref: any) => <ConnectedControl innerRef={ref} {...props}/>)
+export default React.forwardRef((props: any, ref: any) => <ConnectedControl innerRef={ref} {...props} />)

@@ -6,13 +6,13 @@ import styled from 'styled-components'
 import GroupSelector from './step-1-group-selector'
 import LvlSelector from './step-2-lvl-selector'
 import TestingProcess from './step-3-testing-process'
-import SelectionBar from '../../components/selection-bar'
-import Timer from '../../components/timer'
-import QuestionNavigation from '../../components/question-navigation'
-import TestingControl from '../../components/testing-control'
-import Tutorial from '../../pages/main-flow/components/tutorial'
+import SelectionBar from 'components/selection-bar'
+import Timer from 'components/timer'
+import QuestionNavigation from 'components/question-navigation'
+import TestingControl from 'components/testing-control'
+import Tutorial from 'pages/main-flow/components/tutorial'
 
-import { nextTip, skipAllTips } from '../../store/test-flow/tutorial-flow/tutorial-flow.actions'
+import { nextTip, skipAllTips } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 
 
 class TestSelection extends Component {
@@ -47,6 +47,7 @@ class TestSelection extends Component {
             <ContainerCentered>
 
                 {/* Main flow: select test technology, level and component with testing process */}
+                <TestingControl ref={this.controlsRef} />
                 <SelectionPanel position={this.props.currentStep}>
                     <GroupSelector />
                     <LvlSelector />
@@ -56,7 +57,6 @@ class TestSelection extends Component {
                 {/* Additional components for controling the process and general info */}
                 <SelectionBar ref={this.selectionRef} />
                 <Timer ref={this.timerRef} />
-                <TestingControl ref={this.controlsRef} />
                 <QuestionNavigation ref={this.questionNavRef} />
 
                 {/* Responsive tutorial with refs */}

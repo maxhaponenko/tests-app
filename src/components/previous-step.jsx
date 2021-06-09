@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { prevStep, firstStep, disposeFlow } from '../store/test-flow/test-flow.actions'
+import { prevStep, firstStep, disposeFlow } from 'store/test-flow/test-flow.actions'
 import { Button } from 'antd';
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom';

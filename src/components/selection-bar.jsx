@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { technologiesImg } from '../constants/images'
-import { groups, levels } from '../constants/tests'
+import { technologiesImg } from 'constants/images'
+import { groups, levels } from 'constants/tests'
 import PreviousStep from './previous-step'
-import { capitalizeFirst } from '../utils/capitalize'
+import { capitalizeFirst } from 'utils/capitalize'
 
 class SelectionBar extends Component {
     render() {

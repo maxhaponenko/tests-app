@@ -8,6 +8,7 @@ export const CLOSE_TUTORIAL = 'app/test-flow/tutorial/CLOSE_TUTORIAL'
 export const startTutorial = () => ({
     type: START_TUTORIAL
 })
+
 export const nextTip = () => {
     return (dispatch: any, getState: () => AppState) => {
         const currentTip = getState().testFlow.tutorialFlow!.currentTip;

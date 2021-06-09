@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FieldTimeOutlined, QuestionOutlined } from '@ant-design/icons'
-import { capitalizeFirst } from '../../../utils/capitalize'
+import { capitalizeFirst } from 'utils/capitalize'
 
 
 const LevelCard = ({type, title, duration, questionsAmount, onClick}) => {
