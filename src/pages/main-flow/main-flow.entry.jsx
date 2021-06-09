@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 import GroupSelector from './step-1-group-selector'
@@ -10,7 +10,7 @@ import SelectionBar from 'components/selection-bar'
 import Timer from 'components/timer'
 import QuestionNavigation from 'components/question-navigation'
 import TestingControl from 'components/testing-control'
-import Tutorial from 'pages/main-flow/components/tutorial'
+// import Tutorial from 'pages/main-flow/components/tutorial'
 
 import { nextTip, skipAllTips } from 'store/test-flow/tutorial-flow/tutorial-flow.actions'
 
@@ -27,7 +27,7 @@ class TestSelection extends Component {
     questionNavRef = React.createRef();
     controlsRef = React.createRef();
 
-    componentDidMount() {
+    componentDidMount() {//ForMax: What is this for?
         setTimeout(() => {
             this.setState({ showTutorial: true })
         }, 15000)
@@ -47,12 +47,12 @@ class TestSelection extends Component {
             <ContainerCentered>
 
                 {/* Main flow: select test technology, level and component with testing process */}
-                <TestingControl ref={this.controlsRef} />
                 <SelectionPanel position={this.props.currentStep}>
                     <GroupSelector />
                     <LvlSelector />
-                    <TestingProcess />
+                    <TestingProcess refs={[this.timerRef, this.questionNavRef, this.controlsRef, this.selectionRef]}/>
                 </SelectionPanel>
+                <TestingControl ref={this.controlsRef} />
 
                 {/* Additional components for controling the process and general info */}
                 <SelectionBar ref={this.selectionRef} />
@@ -60,10 +60,10 @@ class TestSelection extends Component {
                 <QuestionNavigation ref={this.questionNavRef} />
 
                 {/* Responsive tutorial with refs */}
-                <Tutorial
+                {/* <Tutorial
                     refs={[this.timerRef, this.questionNavRef, this.controlsRef, this.selectionRef]}
-                />
-                
+                /> */}
+
             </ContainerCentered>
         )
     }
@@ -95,8 +95,8 @@ const SelectionPanel = styled.div`
 
 const mapStateToProps = (state) => ({
     currentStep: state.testFlow.currentStep,
-    isTutorialFinished: state.testFlow.tutorialFlow.isFinished,
-    showTutorial: state.testFlow.tutorialFlow.showTutorial
+    // isTutorialFinished: state.testFlow.tutorialFlow.isFinished,
+    // showTutorial: state.testFlow.tutorialFlow.showTutorial
 })
 
 const mapDispatchToProps = {
@@ -104,4 +104,28 @@ const mapDispatchToProps = {
     nextTip: nextTip,
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TestSelection))
+const ConnectedTestSelection = connect(mapStateToProps, mapDispatchToProps)(TestSelection)
+
+// const testSelection = new TestSelection();
+
+// const refs = {
+//     selectionRef: testSelection.selectionRef,
+//     timerRef: testSelection.timerRef,
+//     questionNavRef: testSelection.timerRef,
+//     controlsRef: testSelection.questionNavRef
+// }
+
+// debugger
+
+// export default React.forwardRef((props, ref) => {
+//     const { selectionRef, timerRef, questionNavRef, controlsRef } = refs;
+//     return <ConnectedTestSelection
+//         selectionRef={selectionRef}
+//         timerRef={timerRef}
+//         questionNavRef={questionNavRef}
+//         controlsRef={controlsRef}
+//         {...props} />
+// })
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectedTestSelection)
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TestSelection))

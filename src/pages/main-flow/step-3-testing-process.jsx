@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import Tutorial from 'pages/main-flow/components/tutorial'
 import Questions from './components/questions'
 
 export class TestingProcess extends Component {
+
     render() {
         return (
             <Container className={this.constructor.name}>
                 <Questions />
+                {/* Responsive tutorial with refs */}
+                <Tutorial refs={[...this.props.refs]} /> 
+                {/* ForMax: should I use Tutorial here? */}
             </Container>
         )
     }
@@ -18,7 +23,7 @@ const Container = styled.div`
     height: 100vh;
     padding-top: 70px;
     position: relative;
-    > div {
+    > div:first {//ForMax: should I use :first like this? This way the CSS block doesn't affect Tutorial with this pseudo-class selector
         max-width: 1140px;
         padding: 0 70px;
         margin: 70px auto 0;
@@ -26,11 +31,11 @@ const Container = styled.div`
 `
 
 const mapStateToProps = (state) => ({
-    
 })
 
+
 const mapDispatchToProps = {
-    
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestingProcess)

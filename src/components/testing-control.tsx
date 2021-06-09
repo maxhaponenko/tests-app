@@ -28,8 +28,8 @@ export class TestingControl extends Component<StateProps, {}> {
 }
 
 const HoverArea: any = styled.div`
-  width: 200px;
-  height: 180px;
+  /* width: 200px;
+  height: 180px; */
   position: fixed;
   right: 0;
   bottom: 0;

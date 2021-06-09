@@ -70,7 +70,9 @@ const Heading = styled.h2`
 `
 
 
-const mapStateToProps = () => ({})
+const mapStateToProps = (state) => ({
+    
+})
 
 const mapDispatchToProps = {
     selectGroup: selectGroup

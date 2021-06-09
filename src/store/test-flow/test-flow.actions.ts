@@ -28,9 +28,10 @@ export const selectLevel = (level: string, duration: number) => {//Dabee: figure
         })
 
         const skipTutorial = getState().testFlow.localStorage.skipTutorial;
-
+        
         if (!skipTutorial) setTimeout(() => {
-            dispatch(startTutorial())
+            const isTutorialStep = getState().testFlow.currentStep === 3; //If currentStep changed roughly - don't start the Tutorial
+            if (isTutorialStep) dispatch(startTutorial());
         }, 1500)
 
     }

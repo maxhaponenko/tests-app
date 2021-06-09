@@ -28,7 +28,7 @@ export class LvlSelector extends Component {
                                 questionsAmount={item.questionsAmount}
                                 onClick={() => {
                                     this.props.selectLevel(item.level, item.duration);
-                                    // if (!this.props.skipTutorial) setTimeout(() => {// ForMax: Is this the right place to start tutorial?
+                                    // if (!this.props.skipTutorial) setTimeout(() => {
                                     //     this.props.startTutorial();
                                     // }, 1500)
                                 }}
@@ -64,8 +64,7 @@ const CardsWrapper = styled.div`
 `
 
 const mapStateToProps = (state) => ({
-    testName: state.testFlow.testName,
-    skipTutorial: state.testFlow.localStorage.skipTutorial
+    testName: state.testFlow.testName
 })
 
 const mapDispatchToProps = {

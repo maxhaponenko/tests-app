@@ -87,7 +87,11 @@ const testsFlowReducer = (state = initialState, action: any) => {
         case PREV_STEP: {
             return {
                 ...state,
-                currentStep: state.currentStep - 1
+                currentStep: state.currentStep - 1,
+                tutorialFlow:{
+                    ...state.tutorialFlow,
+                    isFinished: false
+                }
             }
         }
         case FIRST_STEP: {

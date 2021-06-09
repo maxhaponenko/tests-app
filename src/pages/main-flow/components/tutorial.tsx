@@ -127,7 +127,6 @@ export class Tutorial extends Component<OwnProps & StateProps & DispatchProps, {
     }
 
     render() {
-        // console.log(this.props)
         return (
             <>
                 <TipContainer
