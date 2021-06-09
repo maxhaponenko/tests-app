@@ -31,8 +31,6 @@ export interface TestsFlow {
     tutorialFlow?: TutorialState;
 }
 
-console.log('test-flow Reducer');
-
 const authState = loadState(localStorageKeys.AUTH_STATE) //Move to Component "main-flow.entry.jsx
 const skipTutorial = loadState(localStorageKeys.SKIP_TUTORIAL) //Move to Component "main-flow.entry.jsx
 

@@ -23,7 +23,7 @@ const Container = styled.div`
     height: 100vh;
     padding-top: 70px;
     position: relative;
-    > div:first {//ForMax: should I use :first like this? This way the CSS block doesn't affect Tutorial with this pseudo-class selector
+    > div:first-child {//ForMax: should I use :first-child like this? This way the CSS block doesn't affect Tutorial with this pseudo-class selector
         max-width: 1140px;
         padding: 0 70px;
         margin: 70px auto 0;

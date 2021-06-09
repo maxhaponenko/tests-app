@@ -5,10 +5,9 @@ export const localStorageKeys = {
 
 export const saveState = (state) => {
     try {
-        // console.log(state.localStorage)
         if (state.testFlow.localStorage) {
             for (const [localStorageKey, localStorageValue] of Object.entries(state.testFlow.localStorage)) {
-                console.log(localStorageKey, localStorageValue);
+                // console.log(localStorageKey, localStorageValue);
                 const serialisedLocalStorageValue = JSON.stringify(localStorageValue);
                 localStorage.setItem(localStorageKey, serialisedLocalStorageValue);
             }
@@ -17,7 +16,7 @@ export const saveState = (state) => {
         console.error(err)
     }
 };
-console.log('Init loadState');
+
 export const loadState = (key) => {
     try {
         const serialisedState = localStorage.getItem(key);
