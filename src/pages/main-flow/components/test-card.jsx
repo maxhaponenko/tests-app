@@ -9,7 +9,7 @@ const TestCard = ({imgSrc, title, onClick}) => {
             <Card
                 onClick={onClick}
                 hoverable
-                cover={<img alt="example" src={imgSrc} />}
+                cover={<img alt="technology-card" src={imgSrc} />}
             >
                 <Meta title={title} />
             </Card>

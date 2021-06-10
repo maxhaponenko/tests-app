@@ -16,28 +16,28 @@ export class GroupSelector extends Component {
                 <Container>
                     <Heading>What skill you would like to check?</Heading>
                     <Row gutter={[16, 16]} style={{marginLeft: 0, marginRight: 0}}>
-                        <Col className="gutter-row" xs={12} sm={8} md={8} lg={6}>
+                        <Col className="gutter-row" xs={12} sm={6} md={6} lg={6}>
                             <TestsCard
                                 imgSrc={technologiesImg.html}
                                 title="HTML"
                                 onClick={() => this.props.selectGroup(groups.html)}
                             />
                         </Col>
-                        <Col className="gutter-row" xs={12} sm={8} md={8} lg={6}>
+                        <Col className="gutter-row" xs={12} sm={6} md={6} lg={6}>
                             <TestsCard
                                 imgSrc={technologiesImg.css}
                                 title="CSS"
                                 onClick={() => this.props.selectGroup(groups.css)}
                             />
                         </Col>
-                        <Col className="gutter-row" xs={12} sm={8} md={8} lg={6}>
+                        <Col className="gutter-row" xs={12} sm={6} md={6} lg={6}>
                             <TestsCard
                                 imgSrc={technologiesImg.js}
                                 title="JavaScript"
                                 onClick={() => this.props.selectGroup(groups.js)}
                             />
                         </Col>
-                        <Col className="gutter-row" xs={12} sm={8} md={8} lg={6}>
+                        <Col className="gutter-row" xs={12} sm={6} md={6} lg={6}>
                             <TestsCard
                                 imgSrc={technologiesImg.react}
                                 title="React"
